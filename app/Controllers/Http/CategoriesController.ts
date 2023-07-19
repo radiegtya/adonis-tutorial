@@ -1,15 +1,17 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Post from 'App/Models/Post'
 
-export default class PostsController {
+import Category from "App/Models/Category";
+
+export default class CategoriesController {
 
     async index() {
-        return await Post.query().preload('category')
+        return await Category.all()
     }
 
     async store({request}: HttpContextContract) {
         const data = request.body()
 
-        return await Post.create(data)
+        return await Category.create(data)
+
     }
 }

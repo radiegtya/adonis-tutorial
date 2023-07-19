@@ -10,7 +10,7 @@ export default class Post extends BaseModel {
   public title: string
 
   @column()
-  public category_id: number
+  public categoryId: number
 
   @belongsTo(()=> Category)
   public category: BelongsTo<typeof Category>
